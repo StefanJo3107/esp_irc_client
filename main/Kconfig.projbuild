@@ -59,4 +59,22 @@ menu "IRC Configuration"
         depends on IFACE_USER
         help
             This interface will be used for communication
+
+    config IRC_SERVER
+            string "IRC server"
+            default "badusb.test.org"
+            help
+                Server name user will send pong to
+
+    config IRC_USERNAME
+        string "IRC username"
+        default "badusb_esp"
+        help
+            This username will be used for connecting to irc server
+
+    config IRC_CHANNEL
+        string "IRC channel"
+        default "#badusb"
+        help
+            Channel name user will try to connect to
 endmenu
