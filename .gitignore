@@ -2,3 +2,5 @@ build/
 sdkconfig
 sdkconfig.old
 sdkconfig.ci
+cmake-build-debug/
+dependencies.lock

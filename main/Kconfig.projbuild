@@ -1,7 +1,7 @@
 menu "IRC Configuration"
     choice SOCKET_IP_INPUT
         prompt "Socket input source"
-        default SOCKET_INPUT_STRING
+        default SOCKET_IP_INPUT_STRING
         help
             Selects the input source of the IP address
         config SOCKET_IP_INPUT_STRING
